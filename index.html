@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="desktop.css" media="(min-width:992px)">
+
+    <!-- <link rel="stylesheet" href="print.css" media="print"> -->
+</head>
+
+<!-- 12 de Mayo: Progats tiene ahora información sobre el total de animales que hay en adopción en la entidad. Esta información nos viene de una base de datos, y queremos mostrarla en tiempo real al usuario -->
+
+<body>
+    <header class="header">
+        <h1 class="header--title">Progats</h1>
+        <img class="header--logo" src="./img/logo.webp" alt="logo progats">
+        <nav class="menu">
+            <a class="menu--item" href="">Equipo</a>
+            <a class="menu--item" href="">Servicios</a>
+            <a class="menu--item" href="">Contacto</a>
+            <a id="iniciar-sesion" class="menu--item" href="">Iniciar sesion</a>
+            <a id="mi-perfil" style="display:none" class="menu--item" href=""><img style="height: 100%;"src="/img/profilePic.png" alt=""></a>
+
+        </nav>
+    </header>
+    <section class="hero">
+        <p>¡Un hogar para cada gatito!</p>
+    </section>
+    <h2 class="members--title">Equipo</h2>
+    <section class="members">
+        <article class="members--card card__patricia">
+            <h3 class="members--name">Patricia</h3>
+            <p class="members--role">Fundadora</p>
+            <button>Contactar</button>
+        </article>
+        <article class="members--card card__veronica">
+            <h3 class="members--name">Verónica</h3>
+            <p class="members--role">Voluntaria</p>
+                        <button>Contactar</button>
+
+        </article>
+        <article class="members--card card__edurne">
+            <h3 class="members--name">Edurne</h3>
+            <p class="members--role">Voluntaria</p>
+                        <button>Contactar</button>
+
+        </article>
+    </section>
+    <footer class="footer">
+        <p class="footer--description">PROGAT es una asociación sín ánimo de lucro. Apóyanos con <strong>
+                    <a class="footer--link" href="https://www.progatslagarriga.com">una
+                        donación</a>
+            </strong>. ¡Muchas
+            gracias!</p>
+        <p id="mensaje-adopcion">Actualmente hay <span id="num-gatos">6</span> gato/s por adoptar!</p>
+        <p id="mensaje-enhorabuena" style="display: none; color: green; font-weight: 700;">¡Que bien! No hay gatitos por adoptar</p>
+    </footer>
+    <div id="swipeUp">
+        <a href="#top"><img src="./img/paw.png" alt="swipe up arrow"></a>
+    </div>
+
+    <script>
+        // de la 'base de datos' nos ha venido que tenemos 27 gatos en adopción
+        let gatosAdopcion = 20; 
+
+        // En el nodo identificado con el id=num-gatos, cambia su contenido textual por el valor de la variable gatosAdopcion
+        document.querySelector("#num-gatos").textContent = gatosAdopcion;
+
+        // Nos ha pedido el cliente que ahora cuando haya más de 15 gatos por adoptar, resaltemos de alguna manera que es importante fomentar la adopción gatos. Resaltaremos el números de gatos a adoptar con un coloreado rojo y en negrita
+
+        // 1. Tenemos que mirar si el valor de 'gatosAdopcion' es mayor de 15.
+        if (gatosAdopcion > 15) {
+            console.log("Hay muchos gatos que adoptar. Más de 15");
+
+             // 2. Si es mayor de 15, tenemos que seleccionar el elemento <span id="num-gatos">6</span>
+             document.querySelector("#num-gatos").style.color = "red";
+             document.querySelector("#num-gatos").style.fontWeight = 700;
+            
+             
+            // 3. Tenemos que poner de color rojo el texto entre los tags del span
+
+        }
+
+        else if (gatosAdopcion == 0) {
+            document.querySelector("#mensaje-adopcion").style.display = "none";
+            document.querySelector("#mensaje-enhorabuena").style.display = "block";
+        }
+
+        // En el caso de que NO haya gatitos para adoptar, ocultar el mensajes de los gatos que quedan por adoptar y mostrar el otro mensaje en color verde
+ 
+
+        
+
+
+    </script>   
+
+    <script>
+        // Ejercicios condicionales
+
+        // Ejercicio 1. Muestra por consola el número total de gatos que hay en adopción. Es decir, si 'gatosAdopcion' vale 27, me gustaría ver por consola 'Actualmente hay 27 gato/s por adoptar!'. Pero si 'gatosAdopcion' vale 28, me gustaría ver por consola 'Actualmente hay 28 gato/s por adoptar!'
+
+        // console.log(document.querySelector("").textContent); // <--- FALTA COMPLETAR ESTA LÍNEA
+
+        // Ejercicio 2: Si hay más de 20 gatos por adoptar, muestra por consola un mensaje que diga "Hay demasiados gatos por adoptar!". CAmbia el valor de la variable 'gatosAdopcion' para comprobar que tu código funciona bien. 
+
+        // Ejercicio 3: Amplia el ejercicio 2. Si hay menos de 20 gatos por adoptar, haz que se muestre un mensaje por consola que diga "que suerte! no hay muchos michis por adoptar". TEndrás que usar la estructura if..else
+
+        // Ejercicio 4. Tenemos 3 variables que nos indican si las 3 empeladas de progats estan disponibles, o no, en estos momentos
+
+        let patriciaDisponible = true;
+        let veronicaDisponible = false;
+        let edurneDisponible = true;
+
+        // Crea TRES condicionales diferentes para deshabilitar y colorear de gris cada uno de los botones de las chicas que no esten disponibles en este momento. Es decir , para la configuración de las 3 variables anteriores, tendríamos que verlos asi https://oscarm.tinytake.com/msc/NjgzODQ2N18xOTQ5MDg3MA
+        
+        if (!patriciaDisponible) {
+            /** recuperar el boton de la tarjeta de patricia y cambiar su fondo a color gris */
+        }
+
+        if (!veronicaDisponible) {
+            /** recuperar el boton de la tarjeta de veronica y cambiar su fondo a color gris */
+        }
+
+        // Ejercicio 5: Un usuario ha puesto su nombre de usuario y contraseña en nuestro formulario de login. Sus credenciales correctas son "pepe@gmail.com" y "gatitosLover55". Por defecto en el menú vemos un botón que pone "Iniciar Sesión". Cambia todo el codigo necesairo a continuación para simular que un usuario ha iniciado sesión: https://oscarm.tinytake.com/msc/NjgzODUwM18xOTQ5MDkyMQ
+
+
+        let usuario; // cambiar
+        let contraseña; // cambiar
+
+        if (usuario=="pepe@gmail.com" && contraseña=="gatitosLovers55") {
+            /** Oculta el botón de Iniciar sesión y muestra el botón de profile */
+        }
+
+        // Ejercicio 6: el color del número gatos en adopción es proporcional a la cantidad que hay por adoptar. Si hay 255 gatos, es muy rojo. si hay 1 gato es poco rojo. Haz que el número de gatos se pinte de un color rojo más o menos intenso en función de este valor
+
+        // rgb(130, 0 ,0) .. hay 130 gatos por adoptar
+
+    </script>
+
+</body>
+
+</html>
